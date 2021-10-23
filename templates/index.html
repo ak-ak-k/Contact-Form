@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <!-- css link -->
+
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>Contact Form</title>
+    <script src="https://kit.fontawesome.com/38270a4085.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form method="post" action="/contact">
+        {% csrf_token %}
+        <div class="row">
+          <div class="input-group">
+            <input type="text" id="name" name="name" required />
+            <label for="name"><i class="fas fa-user"></i> Your Name</label>
+          </div>
+          <div class="input-group">
+            <input type="text" id="phone" name="phone" required />
+            <label for="phone"><i class="fas fa-phone-square-alt"></i> Phone No.</label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="email" id="email" name="email" required />
+          <label for="email"><i class="fas fa-envelope"></i> Email Id</label>
+        </div>
+        <div class="input-group">
+          <textarea name="message" id="message" name="message" rows="8" required></textarea>
+          <label for="message"><i class="fas fa-comments"></i> Your Message</label>
+        </div>
+        <button type="submit">Submit <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </body>
+</html>
